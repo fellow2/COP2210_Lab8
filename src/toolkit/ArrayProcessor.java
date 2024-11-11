@@ -1,6 +1,7 @@
 package toolkit;
 
-import java.sql.SQLOutput;
+import vehicle.Car;
+
 import java.util.Random;
 
 public class ArrayProcessor {
@@ -31,7 +32,6 @@ public class ArrayProcessor {
         }
     }
     public static double averageOfIntArray(int[] array) {
-
         eventsProcessed++;
         double sum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -40,6 +40,48 @@ public class ArrayProcessor {
         double average = sum / array.length  ;
         System.out.println("\nArray Average: " + average);
         System.out.println();
+        return average;
+    }
+    public static void findCarWithBestMPG(Car[] cars){
+        eventsProcessed++;
+        Car biggestMPG = cars[0];
+        for(int i = 0; i < cars.length; i++){
+            if(cars[i].getMpg() > biggestMPG.getMpg()){
+                biggestMPG = cars[i];
+            }
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println("====================================================");
+        System.out.println("findCarWithBestMPG");
+        System.out.println("====================================================");
+        biggestMPG.displayInfo();
+    }
+    public static void findCarWithWorstMPG(Car[] cars){
+        eventsProcessed++;
+        Car smallestMPG = cars[0];
+        for(int i = 0; i < cars.length; i++){
+            if(cars[i].getMpg() < smallestMPG.getMpg()){
+                smallestMPG = cars[i];
+            }
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println("====================================================");
+        System.out.println("findCarWithWorstMPG");
+        System.out.println("====================================================");
+        smallestMPG.displayInfo();
+    }
+    public static double averageOfCarPrices(Car[] cars){
+        eventsProcessed++;
+        double sumOfPrices = cars[0].getPrice();
+        for(int i = 0; i < cars.length; i++){
+            sumOfPrices += cars[i].getPrice();
+        }
+        double average = sumOfPrices/cars.length;
+        System.out.println();
+        System.out.println();
+        System.out.printf("Car Average Price: $%.2f", average);
         return average;
     }
 }

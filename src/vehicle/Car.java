@@ -18,11 +18,11 @@ public class Car {
     public Car(){
         Random rnd = new Random();
         int randomIndex = rnd.nextInt(colors.length);
+
         vin = VIN + carID;
-        color = String.valueOf(randomIndex);
+        color = colors[randomIndex];
         mpg = rnd.nextDouble(minMPG,maxMPG);
         price = rnd.nextDouble(minPrice,maxPrice);
-        carID += 1;
     }
     public static String[] getColors(){
         return colors;
@@ -61,6 +61,6 @@ public class Car {
         this.price = price;
     }
     public void displayInfo(){
-
+        System.out.printf("VIN: %10s \t Color: %.5s \t Price:  %5.2f \t MPG:  %5.2f\n", vin, color, price, mpg);
     }
 }

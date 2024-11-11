@@ -16,6 +16,8 @@
 package app;
 
 import toolkit.ArrayProcessor;
+import vehicle.Car;
+
 
 public class Controller {
     public static void main(String[] args){
@@ -26,6 +28,55 @@ public class Controller {
             ArrayProcessor.averageOfIntArray(array1);
         }
 
+        Car[] cars = new Car[15];
+        for(int i = 0; i < cars.length; i++){
+            cars[i] = new Car();
+            cars[i].displayInfo();
+        }
+
+        ArrayProcessor.findCarWithBestMPG(cars);
+        ArrayProcessor.findCarWithWorstMPG(cars);
+        ArrayProcessor.averageOfCarPrices(cars);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("=========================================================");
+        System.out.println("2d Arrays");
+        System.out.println("=========================================================");
+        int[][] arrayWithinArrayOfInts = {
+                {1},
+                {1, 2},
+                {1, 2, 3},
+                {1, 2, 3, 4}
+        };
+
+        for(int i = 0; i < arrayWithinArrayOfInts.length; i++){
+            double sum = 0;
+            int[] subArray = arrayWithinArrayOfInts[i];
+
+            for(int k = 0; k < subArray.length; k++){
+                sum += subArray[k];
+            }
+            double average = sum/subArray.length;
+
+            System.out.println();
+            System.out.print("{ ");
+            for(int k = 0; k < subArray.length; k++){
+                System.out.print(subArray[k]);
+                if(k != subArray.length - 1){
+                    System.out.print(", ");
+                }
+            }
+            System.out.print(" }");
+
+            System.out.printf(" Average of Array Entry: %.1f\n", average);
+        }
+        System.out.println();
+        System.out.println("========================================================");
+        System.out.println("ArrayProcessor Events");
+        System.out.println("========================================================");
+        System.out.println("ArrayProcessor Events:" + ArrayProcessor.getEventsProcessed());
     }
     public static void yourInfoHeader(){
         System.out.println("========================================");
